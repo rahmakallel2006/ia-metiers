@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" role="img" aria-labelledby="t d">
+  <title id="t">Un professionnel et l'IA travaillent ensemble</title>
+  <desc id="d">Un humain à gauche et une puce d'intelligence artificielle à droite, reliés par des flèches, autour de six métiers.</desc>
+  <rect width="400" height="240" rx="16" fill="#f1ead9"/>
+  <circle cx="90" cy="80" r="26" fill="#1E3A8A"/>
+  <path d="M48 150 Q90 100 132 150 Z" fill="#1E3A8A"/>
+  <rect x="268" y="52" width="84" height="84" rx="14" fill="#6D28D9"/>
+  <rect x="284" y="68" width="52" height="52" rx="8" fill="#C4B5FD"/>
+  <g stroke="#6D28D9" stroke-width="5" stroke-linecap="round">
+    <path d="M286 40v12M310 40v12M334 40v12M286 136v12M310 136v12M334 136v12"/>
+  </g>
+  <text x="310" y="101" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="#2E1065">IA</text>
+  <path d="M146 94 H252" stroke="#2E1065" stroke-width="4" stroke-linecap="round"/>
+  <path d="M240 84 L254 94 L240 104" fill="none" stroke="#2E1065" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M158 114 H264" stroke="#2E1065" stroke-width="4" stroke-linecap="round" opacity=".5"/>
+  <path d="M170 104 L156 114 L170 124" fill="none" stroke="#2E1065" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/>
+  <g font-family="Arial" font-size="12" font-weight="bold" fill="#2E1065" text-anchor="middle">
+    <rect x="24" y="176" width="108" height="26" rx="13" fill="#fff" stroke="#1E3A8A" stroke-width="2"/><text x="78" y="193">Radiologue</text>
+    <rect x="146" y="176" width="108" height="26" rx="13" fill="#fff" stroke="#1E3A8A" stroke-width="2"/><text x="200" y="193">Développeur</text>
+    <rect x="268" y="176" width="108" height="26" rx="13" fill="#fff" stroke="#1E3A8A" stroke-width="2"/><text x="322" y="193">Enseignant</text>
+    <rect x="24" y="208" width="108" height="26" rx="13" fill="#fff" stroke="#1E3A8A" stroke-width="2"/><text x="78" y="225">Comptable</text>
+    <rect x="146" y="208" width="108" height="26" rx="13" fill="#fff" stroke="#1E3A8A" stroke-width="2"/><text x="200" y="225">Journaliste</text>
+    <rect x="268" y="208" width="108" height="26" rx="13" fill="#fff" stroke="#1E3A8A" stroke-width="2"/><text x="322" y="225">Marketing</text>
+  </g>
+</svg>

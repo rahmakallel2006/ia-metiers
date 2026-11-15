@@ -1,0 +1,633 @@
+/* ===== Couleurs : une seule fois, réutilisées partout (palette validée) ===== */
+:root {
+  --fond: #f1ead9;
+  --encre: #2E1065;
+  --principale: #6D28D9;
+  --clair: #C4B5FD;
+  --texte: #3B3A52;
+}
+
+/* Couleur d'accent propre à chaque page, choisie par la classe du <body> */
+body.disparition    { --accent: #9D174D; }
+body.transformation { --accent: #1E3A8A; }
+body.emergents      { --accent: #7E22CE; }
+
+/* ===== Base ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: var(--fond);
+  color: var(--texte);
+}
+
+a {
+  color: var(--accent);
+}
+
+a:hover {
+  color: var(--principale);
+}
+
+/* ===== Header : bandeau de la couleur de la page ===== */
+.header-categorie {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 36px 48px;
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.header-categorie .surtitre {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.header-categorie h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  line-height: 1.15;
+}
+
+.header-categorie p {
+  margin: 0;
+  max-width: 700px;
+}
+
+.header-categorie a {
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.header-categorie a:hover {
+  border-bottom-color: #ffffff;
+}
+
+/* ===== Mise en page : nav | contenu | vidéo (Flexbox) ===== */
+.page {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 48px;
+}
+
+/* ===== Navigation latérale collante ===== */
+.navigation-interne {
+  flex: 0 0 220px;
+  position: sticky;
+  top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid var(--clair);
+  border-radius: 16px;
+}
+
+.navigation-interne h2 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  color: var(--encre);
+}
+
+.navigation-interne ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navigation-interne a {
+  display: block;
+  padding: 8px 12px;
+  color: var(--texte);
+  text-decoration: none;
+  font-weight: bold;
+  border-left: 3px solid transparent;
+  transition: all 0.2s;
+}
+
+.navigation-interne a[href^="#"] {
+  border-left-color: var(--clair);
+}
+
+.navigation-interne a:hover {
+  color: var(--accent);
+  border-left-color: var(--accent);
+  background: var(--fond);
+}
+
+/* ===== Contenu principal ===== */
+main {
+  flex: 1 1 520px;
+  min-width: 0;
+}
+
+section {
+  margin-bottom: 48px;
+  animation: apparition 0.6s ease both;
+}
+
+section > h2 {
+  margin: 0 0 20px;
+  font-size: 1.8rem;
+  color: var(--encre);
+}
+
+.intro-page a,
+.source a {
+  font-weight: bold;
+}
+
+/* ===== Articles de technologie ===== */
+.article-technologie {
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid var(--clair);
+  border-radius: 16px;
+}
+
+.article-technologie + .article-technologie {
+  margin-top: 20px;
+}
+
+.article-technologie h3 {
+  margin: 0 0 10px;
+  font-size: 1.3rem;
+  color: var(--accent);
+}
+
+.article-technologie p {
+  margin: 0 0 10px;
+}
+
+/* ===== Mention de source ===== */
+.source {
+  margin: 12px 0 0;
+  padding-top: 10px;
+  border-top: 1px dashed var(--clair);
+  font-size: 0.85rem;
+}
+
+/* ===== Encadré « À retenir » ===== */
+.remarque {
+  margin-top: 24px;
+  padding: 20px 24px;
+  background: #ffffff;
+  border-left: 6px solid var(--accent);
+  border-radius: 0 12px 12px 0;
+}
+
+.remarque h3 {
+  margin: 0 0 8px;
+  color: var(--encre);
+}
+
+.remarque p {
+  margin: 0;
+}
+
+/* ===== Cartes de métiers (Flexbox) ===== */
+.cartes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cartes li {
+  flex: 1 1 260px;
+  padding: 22px;
+  background: #ffffff;
+  border: 1px solid var(--clair);
+  border-top: 6px solid var(--accent);
+  border-radius: 12px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cartes li:nth-child(even) {
+  background: #fbf9f3;
+}
+
+.cartes li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(46, 16, 101, 0.15);
+}
+
+.cartes h3 {
+  margin: 0 0 10px;
+  font-size: 1.1rem;
+  color: var(--encre);
+}
+
+.cartes p {
+  margin: 0 0 8px;
+}
+
+.cartes strong {
+  color: var(--accent);
+}
+
+/* ===== Section Sources ===== */
+.liste-sources {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.liste-sources li {
+  margin-bottom: 8px;
+}
+
+/* ===== Compétences (page transformation) ===== */
+.intro-competences {
+  margin: 0 0 16px;
+}
+
+.competences {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.competences li {
+  padding: 10px 18px;
+  background: #ffffff;
+  border: 2px solid var(--accent);
+  border-radius: 999px;
+  font-weight: bold;
+  color: var(--encre);
+}
+
+/* ===== Aside : la vidéo ===== */
+.aside-video {
+  flex: 1 1 280px;
+  max-width: 340px;
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid var(--clair);
+  border-radius: 16px;
+}
+
+.aside-video h2 {
+  margin: 0 0 12px;
+  font-size: 1.2rem;
+  color: var(--encre);
+}
+
+.aside-video p {
+  margin: 0 0 12px;
+  font-size: 0.95rem;
+}
+
+.aside-video iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 12px;
+}
+
+.aside-video .legende-video {
+  margin: 12px 0 0;
+  font-size: 0.85rem;
+}
+
+
+/* ===== Image à côté de sa section, collée à droite (Flexbox) ===== */
+.avec-image {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.avec-image .texte {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.illustration {
+  flex: 0 0 240px;
+  margin: 0 0 0 auto;
+  position: sticky;
+  top: 24px;
+}
+
+.illustration img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--clair);
+  border-radius: 12px;
+  transition: transform 0.3s;
+}
+
+.illustration img:hover {
+  transform: scale(1.04);
+}
+
+.illustration figcaption {
+  margin-top: 8px;
+  font-size: 0.85rem;
+}
+
+.illustration figcaption span {
+  display: block;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* ===== Structure : nav en barre + sections (contenu | aside) ===== */
+.navigation-barre {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  padding: 0 48px;
+  background: var(--encre);
+}
+
+.navigation-barre ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navigation-barre a {
+  display: block;
+  padding: 16px 14px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s;
+}
+
+.navigation-barre a:hover {
+  color: var(--clair);
+  border-bottom-color: var(--accent);
+}
+
+.principal {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 48px;
+}
+
+.section-flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.section-flex .texte {
+  flex: 1 1 520px;
+  min-width: 0;
+}
+
+.aside-lateral {
+  flex: 0 1 320px;
+  max-width: 340px;
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid var(--clair);
+  border-radius: 16px;
+}
+
+.aside-lateral figure {
+  margin: 0;
+}
+
+.aside-lateral figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  transition: transform 0.3s;
+}
+
+.aside-lateral figure img:hover {
+  transform: scale(1.04);
+}
+
+.aside-lateral figcaption {
+  margin-top: 8px;
+  font-size: 0.85rem;
+}
+
+.aside-lateral figcaption span {
+  display: block;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* ===== Grille : nav | sections | asides (chaque aside à hauteur de sa section) ===== */
+.grille {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr) 320px;
+  column-gap: 40px;
+  align-items: start;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 48px;
+}
+
+.grille main {
+  display: contents;
+}
+
+.grille .navigation-interne {
+  grid-column: 1;
+  grid-row: 1 / span 5;
+}
+
+.grille section {
+  grid-column: 2;
+}
+
+.grille #presentation { grid-row: 1; }
+.grille #liste        { grid-row: 2; }
+.grille #competences  { grid-row: 3; }
+.grille #conclusion   { grid-row: 4; }
+.grille #sources      { grid-row: 5; }
+
+.grille .aside-lateral {
+  grid-column: 3;
+  flex: none;
+  max-width: none;
+  margin-bottom: 48px;
+}
+
+.grille .aside-r1 { grid-row: 1; }
+.grille .aside-r2 { grid-row: 2; }
+.grille .aside-r3 { grid-row: 3; }
+
+.aside-lateral figure + figure {
+  margin-top: 20px;
+}
+
+/* ===== Footer (identique à l'accueil : barre violette) ===== */
+footer {
+  background: var(--encre);
+  color: #ffffff;
+  border-top: 6px solid var(--principale);
+}
+
+.footer-contenu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px 48px;
+  padding: 40px 48px;
+}
+
+.footer-bloc {
+  flex: 1 1 240px;
+}
+
+footer h2 {
+  margin: 0 0 12px;
+  font-size: 1.1rem;
+  color: var(--clair);
+}
+
+footer p {
+  margin: 0;
+  color: #e9e3ff;
+}
+
+footer ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+footer li {
+  margin-bottom: 8px;
+}
+
+footer a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--clair);
+  text-decoration: underline;
+}
+
+.footer-bas {
+  margin: 0;
+  padding: 16px 48px;
+  background: var(--principale);
+  text-align: center;
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+
+/* ===== Animation ===== */
+@keyframes apparition {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 800px) {
+  .grille {
+    display: block;
+    padding: 24px;
+  }
+
+  .grille .navigation-interne {
+    margin-bottom: 24px;
+  }
+
+  .navigation-barre {
+    padding: 0 16px;
+  }
+
+  .principal {
+    padding: 24px;
+  }
+
+  .aside-lateral {
+    flex: 1 1 100%;
+    max-width: none;
+  }
+
+  .avec-image {
+    flex-wrap: wrap;
+  }
+
+  .illustration {
+    flex: 1 1 100%;
+    margin: 0;
+    position: static;
+  }
+
+  .header-categorie {
+    padding: 24px;
+  }
+
+  .header-categorie h1 {
+    font-size: 1.7rem;
+  }
+
+  .page {
+    gap: 24px;
+    padding: 24px;
+  }
+
+  .navigation-interne {
+    position: static;
+    flex: 1 1 100%;
+  }
+
+  .navigation-interne ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 16px;
+  }
+
+  .aside-video {
+    flex: 1 1 100%;
+    max-width: none;
+  }
+
+  .footer-contenu {
+    padding: 32px 24px;
+  }
+
+  .footer-bas {
+    padding: 16px 24px;
+  }
+}

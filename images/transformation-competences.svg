@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" role="img" aria-labelledby="t d">
+  <title id="t">Les compétences à acquérir</title>
+  <desc id="d">Un cercle central « Humain + IA » entouré de quatre compétences : esprit critique, créativité, apprentissage continu et protection des données.</desc>
+  <rect width="400" height="240" rx="16" fill="#f1ead9"/>
+  <g stroke="#C4B5FD" stroke-width="4">
+    <path d="M200 120 L90 52M200 120 L310 52M200 120 L90 188M200 120 L310 188"/>
+  </g>
+  <circle cx="200" cy="120" r="46" fill="#1E3A8A"/>
+  <g font-family="Arial" font-weight="bold" text-anchor="middle" fill="#fff">
+    <text x="200" y="116" font-size="15">Humain</text>
+    <text x="200" y="136" font-size="15">+ IA</text>
+  </g>
+  <g font-family="Arial" font-size="12" font-weight="bold" fill="#2E1065" text-anchor="middle">
+    <rect x="22" y="28" width="136" height="48" rx="12" fill="#fff" stroke="#1E3A8A" stroke-width="2"/><text x="90" y="56">Esprit critique</text>
+    <rect x="242" y="28" width="136" height="48" rx="12" fill="#fff" stroke="#1E3A8A" stroke-width="2"/><text x="310" y="56">Créativité</text>
+    <rect x="22" y="164" width="136" height="48" rx="12" fill="#fff" stroke="#1E3A8A" stroke-width="2"/><text x="90" y="192">Apprentissage continu</text>
+    <rect x="242" y="164" width="136" height="48" rx="12" fill="#fff" stroke="#1E3A8A" stroke-width="2"/><text x="310" y="192">Protection des données</text>
+  </g>
+</svg>
