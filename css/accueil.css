@@ -1,0 +1,291 @@
+:root {
+  --fond: #f1ead9;
+  --encre: #2E1065;
+  --principale: #6D28D9;
+  --clair: #C4B5FD;
+  --texte: #3B3A52;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: var(--fond);
+  color: var(--texte);
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 32px 48px;
+  background: var(--encre);
+  color: #ffffff;
+}
+
+header div {
+  flex: 1 1 320px;
+}
+
+header h1 {
+  margin: 0 0 8px;
+  font-size: 2rem;
+}
+
+header p {
+  margin: 0;
+  color: var(--clair);
+}
+
+/* header img:first-child {
+  width: 64px;
+  height: 64px;
+} */
+
+header img:first-child {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+header img:last-child {
+  width: 280px;
+  max-width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 32px;
+  padding: 0 48px;
+  background: var(--principale);
+}
+
+nav a {
+  padding: 16px 0;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  border-bottom: 3px solid transparent;
+}
+
+nav a:hover {
+  border-bottom-color: #ffffff;
+}
+
+footer {
+  margin-top: 48px;
+  background: var(--encre);
+  color: #ffffff;
+  border-top: 6px solid var(--principale);
+}
+
+.footer-contenu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px 48px;
+  padding: 40px 48px;
+}
+
+.footer-bloc {
+  flex: 1 1 240px;
+}
+
+footer h3 {
+  margin: 0 0 12px;
+  font-size: 1.1rem;
+  color: var(--clair);
+}
+
+footer p {
+  margin: 0;
+  color: #e9e3ff;
+}
+
+footer ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+footer li {
+  margin-bottom: 8px;
+}
+
+footer a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--clair);
+  text-decoration: underline;
+}
+
+.footer-bas {
+  padding: 16px 48px;
+  background: var(--principale);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.footer-bas p {
+  color: #ffffff;
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+section {
+  margin-bottom: 48px;
+}
+
+section h2 {
+  margin: 0 0 20px;
+  font-size: 1.6rem;
+  color: var(--encre);
+}
+
+.tableau-conteneur {
+  overflow-x: auto;
+  background: #ffffff;
+  border: 1px solid var(--clair);
+  border-radius: 12px;
+}
+
+table {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+caption {
+  padding: 14px 20px;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+thead th {
+  padding: 14px 20px;
+  background: var(--encre);
+  color: #ffffff;
+}
+
+tbody th,
+tbody td {
+  padding: 18px 20px;
+  border-top: 1px solid #e9e3ff;
+}
+
+tbody th {
+  color: var(--principale);
+}
+
+tbody tr:nth-child(even) {
+  background: var(--fond);
+}
+
+tbody tr:hover {
+  background: #f0e7ff;
+}
+
+tbody td a {
+  display: inline-block;
+  padding: 8px 16px;
+  background: var(--principale);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+tbody td a:hover {
+  background: var(--encre);
+}
+
+.bloc-technologies {
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid var(--clair);
+  border-radius: 16px;
+}
+
+.intro-technologies {
+  margin: 0;
+  padding: 18px 28px;
+  background: var(--encre);
+  color: #ffffff;
+}
+
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: #e9e3ff;
+}
+
+.technologies li {
+  flex: 1 1 calc(50% - 1px);
+  min-width: 260px;
+  display: flex;
+  gap: 16px;
+  padding: 24px 28px;
+  background: #ffffff;
+  transition: background 0.2s;
+}
+
+.technologies li:hover {
+  background: #faf7ff;
+}
+
+.numero {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--principale);
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 50%;
+}
+
+.technologies h3 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  color: var(--encre);
+}
+
+.technologies p {
+  margin: 0 0 10px;
+}
+
+.technologies a {
+  color: var(--principale);
+  font-weight: bold;
+}
+.sous-titre {
+  margin: 0 0 16px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  font-style: italic;
+  color: var(--principale);
+}
