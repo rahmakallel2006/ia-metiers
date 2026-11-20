@@ -1,115 +1,511 @@
-:root {
-  --fond: #f1ead9;
-  --encre: #2E1065;
-  --principale: #6D28D9;
-  --clair: #C4B5FD;
-  --texte: #3B3A52;
+/* =========================================================
+   accueil.css : feuille de style de la page d'accueil
+   Thème « Signal » : bleu nuit + trois couleurs de catégorie
+   rouge = disparition, ambre = transformation, vert = émergents
+   ========================================================= */
+
+/* ===== Polices (@font-face, fichiers dans le dossier fonts) ===== */
+@font-face {
+  font-family: 'Sora';
+  src: url(../fonts/sora-700.woff2);
+  font-weight: 700;
 }
 
+@font-face {
+  font-family: 'Sora';
+  src: url(../fonts/sora-800.woff2);
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: 'Sora';
+  src: url(../fonts/sora-600.woff2);
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url(../fonts/inter-400.woff2);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url(../fonts/inter-600.woff2);
+  font-weight: 600;
+}
+
+/* ===== Base ===== */
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  background: var(--fond);
-  color: var(--texte);
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  background-color: #F3F5FA;
+  color: #2A3048;
 }
 
+h1, h2, h3 {
+  font-family: 'Sora', Arial, sans-serif;
+  line-height: 1.2;
+}
+
+a {
+  color: #3346D3;
+}
+
+a:hover {
+  color: #0B1026;
+}
+
+/* Petite flèche après chaque lien externe (sélecteur d'attribut) */
+a[target="_blank"]::after {
+  content: " ↗";
+  font-size: 0.8em;
+}
+
+/* ===== Header : bannière bleu nuit avec motif de circuit ===== */
 header {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
-  padding: 32px 48px;
-  background: var(--encre);
+  padding: 56px 6%;
+  background-color: #0B1026;
+  background-image: url(../images/motif-circuit.svg);
+  background-repeat: repeat;
   color: #ffffff;
 }
 
-header div {
-  flex: 1 1 320px;
+/* Le logo : premier enfant du header, il « flotte » */
+header > img:first-child {
+  width: 130px;
+  height: 130px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 28px;
+  box-shadow: 0 0 40px rgba(51, 70, 211, 0.55);
+  animation: flotter 4s ease-in-out infinite;
+}
+
+header > div {
+  flex: 1;
+  margin: 0 40px;
 }
 
 header h1 {
-  margin: 0 0 8px;
-  font-size: 2rem;
+  margin: 0 0 14px;
+  font-size: 2.7rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
 }
 
 header p {
   margin: 0;
-  color: var(--clair);
+  font-size: 1.15rem;
+  color: #AEB6D6;
 }
 
-/* header img:first-child {
-  width: 64px;
-  height: 64px;
-} */
-
-header img:first-child {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 16px;
+/* La bannière : dernier enfant du header, légèrement penchée */
+header > img:last-child {
+  width: 340px;
+  height: 170px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  transform: rotate(2deg);
+  transition: transform 0.4s;
 }
 
-header img:last-child {
-  width: 280px;
-  max-width: 100%;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 16px;
+header > img:last-child:hover {
+  transform: rotate(0deg) scale(1.04);
 }
 
+/* ===== Menu : collé en haut, bande tricolore « signal » ===== */
 nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 32px;
-  padding: 0 48px;
-  background: var(--principale);
+  justify-content: center;
+  padding: 5px 6% 0;
+  background-color: #ffffff;
+  background-image: url(../images/bande-signal.svg);
+  background-repeat: repeat-x;
+  background-position: top left;
+  box-shadow: 0 6px 20px rgba(11, 16, 38, 0.08);
 }
 
 nav a {
-  padding: 16px 0;
-  color: #ffffff;
+  position: relative;
+  margin: 0 22px;
+  padding: 18px 0;
+  font-family: 'Sora', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 0.98rem;
+  color: #0B1026;
   text-decoration: none;
-  font-weight: bold;
-  border-bottom: 3px solid transparent;
 }
 
-nav a:hover {
-  border-bottom-color: #ffffff;
+/* Pastille de couleur devant les 3 catégories */
+nav a:nth-child(n+2)::before {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 8px;
+  border-radius: 50%;
 }
 
-footer {
-  margin-top: 48px;
-  background: var(--encre);
+nav a:nth-child(2)::before { background-color: #E5484D; }
+nav a:nth-child(3)::before { background-color: #F2A516; }
+nav a:nth-child(4)::before { background-color: #12A87A; }
+
+/* Soulignement qui se déroule au survol */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 10px;
+  width: 0;
+  height: 3px;
+  border-radius: 3px;
+  background-color: #0B1026;
+  transition: width 0.3s;
+}
+
+nav a:nth-child(2)::after { background-color: #E5484D; }
+nav a:nth-child(3)::after { background-color: #F2A516; }
+nav a:nth-child(4)::after { background-color: #12A87A; }
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ===== Contenu principal ===== */
+main {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
+main > section {
+  margin-bottom: 80px;
+  animation: apparition 0.8s ease both;
+}
+
+section h2 {
+  margin: 0 0 28px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0B1026;
+}
+
+/* Petite barre tricolore au-dessus de chaque titre de section */
+section h2::before {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 5px;
+  margin-bottom: 16px;
+  border-radius: 3px;
+  background-image: url(../images/bande-signal.svg);
+}
+
+/* ===== Section 1 : le rôle de l'IA (article + aside) ===== */
+#role-ia {
+  display: flex;
+  align-items: flex-start;
+}
+
+#role-ia article {
+  flex: 2;
+}
+
+#role-ia aside {
+  flex: 1;
+  position: sticky;
+  top: 90px;
+  margin-left: 48px;
+  padding: 30px;
+  border-radius: 22px;
+  background-color: #0B1026;
+  background-image: url(../images/motif-circuit.svg);
   color: #ffffff;
-  border-top: 6px solid var(--principale);
+}
+
+.sous-titre {
+  margin: 0 0 20px;
+  font-family: 'Sora', Arial, sans-serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #3346D3;
+}
+
+/* Lettrine sur le premier paragraphe après le sous-titre */
+.sous-titre + p::first-letter {
+  float: left;
+  margin: 8px 12px 0 0;
+  font-family: 'Sora', Arial, sans-serif;
+  font-size: 3.6rem;
+  font-weight: 800;
+  line-height: 1;
+  color: #0B1026;
+}
+
+#role-ia aside h3 {
+  margin: 0 0 18px;
+  font-size: 1.2rem;
+}
+
+#role-ia aside ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#role-ia aside li {
+  padding: 4px 0 4px 16px;
+  border-left: 4px solid #ffffff;
+  color: #D7DCF0;
+}
+
+#role-ia aside li + li {
+  margin-top: 18px;
+}
+
+#role-ia aside li:nth-child(1) { border-left-color: #E5484D; }
+#role-ia aside li:nth-child(2) { border-left-color: #F2A516; }
+#role-ia aside li:nth-child(3) { border-left-color: #12A87A; }
+
+#role-ia aside strong {
+  font-family: 'Sora', Arial, sans-serif;
+  color: #ffffff;
+}
+
+/* ===== Section 2 : les technologies (Flexbox 2 x 2) ===== */
+.bloc-technologies {
+  overflow: hidden;
+  border: 1px solid #DCE1EE;
+  border-radius: 22px;
+  background-color: #ffffff;
+}
+
+.intro-technologies {
+  margin: 0;
+  padding: 18px 30px;
+  background-color: #0B1026;
+  color: #D7DCF0;
+}
+
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.technologies li {
+  display: flex;
+  align-items: flex-start;
+  width: 50%;
+  padding: 30px;
+  border-bottom: 1px solid #DCE1EE;
+  transition: background-color 0.3s;
+}
+
+.technologies li:nth-child(odd) {
+  border-right: 1px solid #DCE1EE;
+}
+
+.technologies li:nth-child(3),
+.technologies li:nth-child(4) {
+  border-bottom: none;
+}
+
+.technologies li:hover {
+  background-color: #F3F5FA;
+}
+
+/* Le grand numéro gris qui devient bleu nuit au survol */
+.numero {
+  min-width: 70px;
+  font-family: 'Sora', Arial, sans-serif;
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1;
+  color: #C9D0E6;
+  transition: color 0.3s;
+}
+
+.technologies li:hover .numero {
+  color: #0B1026;
+}
+
+.technologies h3 {
+  margin: 0 0 8px;
+  font-size: 1.15rem;
+  color: #0B1026;
+}
+
+.technologies p {
+  margin: 0 0 10px;
+}
+
+.technologies a {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.technologies a::after {
+  content: " →";
+}
+
+/* ===== Tableaux (sections 3 et 4) ===== */
+.tableau-conteneur {
+  overflow: auto;
+  border: 1px solid #DCE1EE;
+  border-radius: 22px;
+  background-color: #ffffff;
+}
+
+table {
+  width: 100%;
+  min-width: 700px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+caption {
+  padding: 18px 26px;
+  text-align: left;
+  color: #5B6380;
+}
+
+thead th {
+  padding: 14px 22px;
+  background-color: #0B1026;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+tbody th,
+tbody td {
+  padding: 20px 22px;
+  border-top: 1px solid #DCE1EE;
+  vertical-align: top;
+}
+
+tbody tr {
+  transition: background-color 0.2s;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #F8F9FC;
+}
+
+tbody tr:hover {
+  background-color: #EEF1FF;
+}
+
+/* Les grands chiffres clés, chacun avec sa couleur */
+.tableau-chiffres tbody th {
+  width: 150px;
+  font-family: 'Sora', Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.tableau-chiffres tbody tr:nth-child(1) th { color: #12A87A; }
+.tableau-chiffres tbody tr:nth-child(2) th { color: #D48C00; }
+.tableau-chiffres tbody tr:nth-child(3) th { color: #3346D3; }
+.tableau-chiffres tbody tr:nth-child(4) th { color: #E5484D; }
+
+/* Tableau des 3 catégories : bord coloré + bouton */
+#categories tbody th {
+  font-family: 'Sora', Arial, sans-serif;
+  color: #0B1026;
+  border-left: 6px solid #0B1026;
+}
+
+#categories tbody tr:nth-child(1) th { border-left-color: #E5484D; }
+#categories tbody tr:nth-child(2) th { border-left-color: #F2A516; }
+#categories tbody tr:nth-child(3) th { border-left-color: #12A87A; }
+
+#categories td a {
+  display: inline-block;
+  width: 170px;
+  padding: 9px 18px;
+  text-align: center;
+  border-radius: 999px;
+  background-color: #0B1026;
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+#categories td:last-child {
+  width: 190px;
+}
+
+#categories td a::after {
+  content: " →";
+}
+
+#categories td a:hover {
+  transform: translateX(4px);
+}
+
+#categories tbody tr:nth-child(1) td a:hover { background-color: #E5484D; }
+#categories tbody tr:nth-child(2) td a:hover { background-color: #D48C00; }
+#categories tbody tr:nth-child(3) td a:hover { background-color: #12A87A; }
+
+/* ===== Footer ===== */
+footer {
+  background-color: #0B1026;
+  background-image: url(../images/motif-circuit.svg);
+  color: #ffffff;
+}
+
+footer::before {
+  content: "";
+  display: block;
+  height: 5px;
+  background-image: url(../images/bande-signal.svg);
+  background-repeat: repeat-x;
 }
 
 .footer-contenu {
   display: flex;
   flex-wrap: wrap;
-  gap: 32px 48px;
-  padding: 40px 48px;
+  justify-content: space-between;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 56px 24px 40px;
 }
 
 .footer-bloc {
-  flex: 1 1 240px;
+  width: 30%;
+  margin-bottom: 24px;
 }
 
 footer h3 {
-  margin: 0 0 12px;
-  font-size: 1.1rem;
-  color: var(--clair);
+  margin: 0 0 14px;
+  font-size: 1.05rem;
+  color: #ffffff;
 }
 
 footer p {
   margin: 0;
-  color: #e9e3ff;
+  color: #AEB6D6;
 }
 
 footer ul {
@@ -119,173 +515,135 @@ footer ul {
 }
 
 footer li {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 footer a {
-  color: #ffffff;
+  color: #D7DCF0;
   text-decoration: none;
 }
 
 footer a:hover {
-  color: var(--clair);
+  color: #ffffff;
   text-decoration: underline;
 }
 
 .footer-bas {
-  padding: 16px 48px;
-  background: var(--principale);
+  padding: 18px 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #070B1C;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .footer-bas p {
-  color: #ffffff;
+  color: #8B93B5;
 }
 
-main {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 48px 24px;
+/* ===== Animations (@keyframes) ===== */
+@keyframes flotter {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
 }
 
-section {
-  margin-bottom: 48px;
+@keyframes apparition {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-section h2 {
-  margin: 0 0 20px;
-  font-size: 1.6rem;
-  color: var(--encre);
+/* ===== Responsive (media queries) ===== */
+
+/* Tablette */
+@media (max-width: 900px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 24px;
+  }
+
+  header > div {
+    margin: 24px 0;
+  }
+
+  header h1 {
+    font-size: 2.1rem;
+  }
+
+  header > img:last-child {
+    width: 100%;
+    height: 180px;
+    transform: rotate(0deg);
+  }
+
+  #role-ia {
+    flex-direction: column;
+  }
+
+  #role-ia aside {
+    position: static;
+    margin: 32px 0 0;
+  }
+
+  .technologies li {
+    width: 100%;
+    border-right: none;
+  }
+
+  .technologies li:nth-child(odd) {
+    border-right: none;
+  }
+
+  .technologies li:nth-child(3) {
+    border-bottom: 1px solid #DCE1EE;
+  }
+
+  .footer-bloc {
+    width: 100%;
+  }
 }
 
-.tableau-conteneur {
-  overflow-x: auto;
-  background: #ffffff;
-  border: 1px solid var(--clair);
-  border-radius: 12px;
-}
+/* Téléphone */
+@media (max-width: 560px) {
+  body {
+    font-size: 16px;
+  }
 
-table {
-  width: 100%;
-  min-width: 680px;
-  border-collapse: collapse;
-  text-align: left;
-}
+  nav {
+    justify-content: flex-start;
+    padding: 5px 12px 0;
+  }
 
-caption {
-  padding: 14px 20px;
-  text-align: left;
-  font-size: 0.9rem;
-}
+  nav a {
+    margin: 0 10px;
+    padding: 12px 0;
+    font-size: 0.9rem;
+  }
 
-thead th {
-  padding: 14px 20px;
-  background: var(--encre);
-  color: #ffffff;
-}
+  nav a::after {
+    bottom: 6px;
+  }
 
-tbody th,
-tbody td {
-  padding: 18px 20px;
-  border-top: 1px solid #e9e3ff;
-}
+  main {
+    padding: 40px 16px;
+  }
 
-tbody th {
-  color: var(--principale);
-}
+  section h2 {
+    font-size: 1.6rem;
+  }
 
-tbody tr:nth-child(even) {
-  background: var(--fond);
-}
+  .technologies li {
+    padding: 22px;
+  }
 
-tbody tr:hover {
-  background: #f0e7ff;
-}
-
-tbody td a {
-  display: inline-block;
-  padding: 8px 16px;
-  background: var(--principale);
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 8px;
-}
-
-tbody td a:hover {
-  background: var(--encre);
-}
-
-.bloc-technologies {
-  overflow: hidden;
-  background: #ffffff;
-  border: 1px solid var(--clair);
-  border-radius: 16px;
-}
-
-.intro-technologies {
-  margin: 0;
-  padding: 18px 28px;
-  background: var(--encre);
-  color: #ffffff;
-}
-
-.technologies {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  background: #e9e3ff;
-}
-
-.technologies li {
-  flex: 1 1 calc(50% - 1px);
-  min-width: 260px;
-  display: flex;
-  gap: 16px;
-  padding: 24px 28px;
-  background: #ffffff;
-  transition: background 0.2s;
-}
-
-.technologies li:hover {
-  background: #faf7ff;
-}
-
-.numero {
-  flex: none;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--principale);
-  color: #ffffff;
-  font-weight: bold;
-  border-radius: 50%;
-}
-
-.technologies h3 {
-  margin: 0 0 8px;
-  font-size: 1.1rem;
-  color: var(--encre);
-}
-
-.technologies p {
-  margin: 0 0 10px;
-}
-
-.technologies a {
-  color: var(--principale);
-  font-weight: bold;
-}
-.sous-titre {
-  margin: 0 0 16px;
-  font-size: 1.25rem;
-  font-weight: bold;
-  font-style: italic;
-  color: var(--principale);
+  .numero {
+    min-width: 54px;
+    font-size: 2.2rem;
+  }
 }
