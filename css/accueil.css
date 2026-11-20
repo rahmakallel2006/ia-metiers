@@ -186,13 +186,13 @@ nav a:hover::after {
 }
 
 /* ===== Contenu principal ===== */
-main {
+.contenu {
   max-width: 1140px;
   margin: 0 auto;
   padding: 64px 24px;
 }
 
-main > section {
+.contenu > section {
   margin-bottom: 80px;
   animation: apparition 0.8s ease both;
 }
@@ -630,7 +630,7 @@ footer a:hover {
     bottom: 6px;
   }
 
-  main {
+  .contenu {
     padding: 40px 16px;
   }
 
